@@ -8,6 +8,7 @@ class Plot_bar_extinction():
         self.diff = diff
         self.diff_perc = diff_perc
 
+    @st.cache
     def plot(self, title, is_streamlit = True):
 
         def addlabels_O2Hb(x,y,s):
@@ -67,7 +68,7 @@ class Plot_bar_central_wavelength():
         self.fwhm_diff = fwhm_diff
         self.central_wavelengths_diff = central_wavelengths_diff
 
-
+    @st.cache
     def plot(self, title, is_streamlit = True):
 
         def addlabels_dominant_wavelength_diff(x,y,s):

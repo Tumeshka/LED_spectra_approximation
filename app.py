@@ -11,7 +11,6 @@ from Plot_comparison import *
 from Plot_comparison_real_data import *
 
 # Define Streamlit app
-@st.cache
 def main():
     st.title("LED emission approximation app")
 
