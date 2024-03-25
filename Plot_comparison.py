@@ -108,10 +108,10 @@ class Plot_comparison:
         axs[1, 1].set_ylabel('Cumulative Intensity normalized')
         axs[1, 1].legend()
 
-        img = io.BytesIO()
-        plt.savefig(img, format='png')
+        cum_spectra_img = io.BytesIO()
+        plt.savefig(cum_spectra_img, format='png')
 
-        btn = st.download_button(label = "Download the cumulative spectra plot", data = img, file_name = "Cumulative spectra plot.png", mime = "image/png")
+        cum_spectra_btn = st.download_button(label = "Download the cumulative spectra plot", data = cum_spectra_img, file_name = "Cumulative spectra plot.png", mime = "image/png")
 
         if not is_streamlit:
             plt.show()
