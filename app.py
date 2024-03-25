@@ -48,7 +48,7 @@ def main():
 
     # Add code to load and process data, using the parameters as inputs
     if run_toggle:
-        johnson = Johnson_method(simulation=is_simulation, folder_path=folder_path, separator=separator)
+        johnson = Johnson_method(simulation=is_simulation, folder_path=folder_path, separator=separator, starting_wavelength=starting_wavelength, ending_wavelength=ending_wavelength)
         diff, diff_perc = johnson.get_extinction_coef()
         lib_spectral_data_p15 = johnson.get_lib_spectral_data()
         lib_central_wavelengths_p15 = johnson.get_lib_central_wavelengths()
