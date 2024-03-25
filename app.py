@@ -45,23 +45,23 @@ def main():
         lib_spectral_data_p15 = johnson.get_lib_spectral_data()
         lib_central_wavelengths_p15 = johnson.get_lib_central_wavelengths()
 
-        bar_plot = Plot_bar_extinction(diff, diff_perc).plot(title)
+        Plot_bar_extinction(diff, diff_perc).plot(title)
 
-        st.download.button(label = "Bar plot", data = bar_plot, file_name = "Bar plot.png", mime = "image/png")
+        st.download.button(label = "Bar plot", data = Plot_bar_extinction(diff, diff_perc).plot(title), file_name = "Bar plot.png", mime = "image/png")
 
         if not is_simulation:
-            spectra_plot = Plot_comparison_real_data(lib_spectral_data_p15).plot_spectra(title)
-            st.download_button(label = "Spectra plot", data = spectra_plot, file_name = "Spectra plot.png", mime = "image/png")
+            Plot_comparison_real_data(lib_spectral_data_p15).plot_spectra(title)
+            st.download_button(label = "Spectra plot", data = Plot_comparison_real_data(lib_spectral_data_p15).plot_spectra(title), file_name = "Spectra plot.png", mime = "image/png")
 
-            cum_spectra_plot = Plot_comparison_real_data(lib_spectral_data_p15).plot_cumulative_spectra(title)
-            st.download_button(label = "Cumulative spectra plot", data = cum_spectra_plot, file_name = "Cumulative spectra plot.png", mime = "image/png")
+            Plot_comparison_real_data(lib_spectral_data_p15).plot_cumulative_spectra(title)
+            st.download_button(label = "Cumulative spectra plot", data = Plot_comparison_real_data(lib_spectral_data_p15).plot_cumulative_spectra(title), file_name = "Cumulative spectra plot.png", mime = "image/png")
 
         elif is_simulation == True:
-            spectra_plot = Plot_comparison(lib_spectral_data_p15).plot_spectra(title)
-            st.download_button(label = "Spectra plot", data = spectra_plot, file_name = "Spectra plot.png", mime = "image/png")
+            Plot_comparison(lib_spectral_data_p15).plot_spectra(title)
+            st.download_button(label = "Spectra plot", data = Plot_comparison(lib_spectral_data_p15).plot_spectra(title), file_name = "Spectra plot.png", mime = "image/png")
 
-            cum_spectra_plot = Plot_comparison(lib_spectral_data_p15).plot_cumulative_spectra(title)
-            st.download_button(label = "Cumulative spectra plot", data = cum_spectra_plot, file_name = "Cumulative spectra plot.png", mime = "image/png")
+            Plot_comparison(lib_spectral_data_p15).plot_cumulative_spectra(title)
+            st.download_button(label = "Cumulative spectra plot", data = Plot_comparison(lib_spectral_data_p15).plot_cumulative_spectra(title), file_name = "Cumulative spectra plot.png", mime = "image/png")
 
 
 if __name__ == "__main__":
