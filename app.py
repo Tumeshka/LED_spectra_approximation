@@ -27,7 +27,6 @@ def main():
     ending_wavelength = st.sidebar.number_input("Ending wavelength", value=1200)
     title = st.sidebar.text_input("Title", value="LED emission approximation")
     save_the_plots = st.sidebar.checkbox("Save the plots", value=False)
-    print(save_the_plots)
     
     plot_path = None
     if save_the_plots:
