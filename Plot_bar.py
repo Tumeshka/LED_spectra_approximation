@@ -54,7 +54,7 @@ class Plot_bar_extinction():
         img = io.BytesIO()
         plt.savefig(img, format='png')
 
-        btn = st.download_button(label = "Bar plot", data = img, file_name = "Bar plot.png", mime = "image/png")
+        btn = st.download_button(label = "Download the bar plot", data = img, file_name = "Bar plot.png", mime = "image/png")
 
         if not is_streamlit:
             plt.show()
@@ -118,6 +118,10 @@ class Plot_bar_central_wavelength():
 
         plt.legend(loc = "upper right", bbox_to_anchor=(1.22, 1))
 
+        img = io.BytesIO()
+        plt.savefig(img, format='png')
+
+        btn = st.download_button(label = "Download the central wavelength bar plot", data = img, file_name = "CW Bar plot.png", mime = "image/png")
 
         if not is_streamlit:
             plt.show()

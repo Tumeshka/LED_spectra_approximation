@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
+import io
 
 class Plot_comparison:
     def __init__(self, lib_spectral_data):
@@ -60,6 +61,11 @@ class Plot_comparison:
         axs[1, 1].set_ylabel('Intensity normalized')
         axs[1, 1].legend()
 
+        img = io.BytesIO()
+        plt.savefig(img, format='png')
+
+        btn = st.download_button(label = "Download the spectra plot", data = img, file_name = "Spectra plot.png", mime = "image/png")
+
 
         if not is_streamlit:
             plt.show()
@@ -102,6 +108,10 @@ class Plot_comparison:
         axs[1, 1].set_ylabel('Cumulative Intensity normalized')
         axs[1, 1].legend()
 
+        img = io.BytesIO()
+        plt.savefig(img, format='png')
+
+        btn = st.download_button(label = "Download the cumulative spectra plot", data = img, file_name = "Cumulative spectra plot.png", mime = "image/png")
 
         if not is_streamlit:
             plt.show()
