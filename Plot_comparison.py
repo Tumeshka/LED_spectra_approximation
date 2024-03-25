@@ -62,6 +62,9 @@ class Plot_comparison:
         axs[1, 1].set_ylabel('Intensity normalized')
         axs[1, 1].legend()
 
+        if self.save_plots:
+            plt.savefig(self.plot_path + "\\" + "Spectra plot " + title + ".png")
+
         if not is_streamlit:
             plt.show()
         else:
@@ -102,6 +105,9 @@ class Plot_comparison:
         axs[1, 1].set_xlabel('Wavelength (nm)')
         axs[1, 1].set_ylabel('Cumulative Intensity normalized')
         axs[1, 1].legend()
+
+        if self.save_plots:
+            plt.savefig(self.plot_path + "\\" + "Cumulative spectra plot " + title + ".png")
 
         if not is_streamlit:
             plt.show()
