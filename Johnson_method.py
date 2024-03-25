@@ -8,7 +8,7 @@ import spectra as sp
 
 class Johnson_method:
     def __init__(self, simulation = True, folder_path = None, separator = None, starting_wavelength = 600, ending_wavelength = 1200):
-        self.absorption_csv_path = r"C:\Users\Tumen\Work\Coding\Ready_to_use_version\excoef.csv"
+        self.absorption_csv_path = r"C:\Users\Tumen\Work\GIT_local\LED_spectra_approximation\excoef.csv"
         self.lib_spectral_data = {}
         self.peak_types = ["Single peak", "Double peak", "Triple peak", "Quadruple peak"]
         self.simulation = simulation
