@@ -3,7 +3,7 @@ import numpy as np
 import streamlit as st
 
 class Plot_comparison:
-    def __init__(self, lib_spectral_data, save_plots, plot_path = None):
+    def __init__(self, lib_spectral_data):
             
         self.Single_peak_raw_simulated = lib_spectral_data["Single peak raw simulated"]
         self.Single_peak_Simulated = lib_spectral_data["Single peak simulated"]
@@ -21,8 +21,6 @@ class Plot_comparison:
         self.Quadruple_peak_Simulated = lib_spectral_data["Quadruple peak simulated"]
         self.Quadruple_peak_reconstructed = lib_spectral_data["Quadruple peak reconstructed"]
 
-        self.save_plots = save_plots
-        self.plot_path = plot_path
 
 
     def plot_spectra(self, title, is_streamlit = True):
@@ -62,8 +60,6 @@ class Plot_comparison:
         axs[1, 1].set_ylabel('Intensity normalized')
         axs[1, 1].legend()
 
-        if self.save_plots:
-            plt.savefig(self.plot_path + "\\" + "Spectra plot " + title + ".png")
 
         if not is_streamlit:
             plt.show()
@@ -106,8 +102,6 @@ class Plot_comparison:
         axs[1, 1].set_ylabel('Cumulative Intensity normalized')
         axs[1, 1].legend()
 
-        if self.save_plots:
-            plt.savefig(self.plot_path + "\\" + "Cumulative spectra plot " + title + ".png")
 
         if not is_streamlit:
             plt.show()

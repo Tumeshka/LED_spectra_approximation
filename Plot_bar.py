@@ -3,11 +3,9 @@ import numpy as np
 import streamlit as st
 
 class Plot_bar_extinction():
-    def __init__(self, diff, diff_perc, save_plots, plot_path = None):
+    def __init__(self, diff, diff_perc):
         self.diff = diff
         self.diff_perc = diff_perc
-        self.save_plots = save_plots
-        self.plot_path = plot_path
 
     def plot(self, title, is_streamlit = True):
 
@@ -61,12 +59,10 @@ class Plot_bar_extinction():
             st.pyplot(fig)
 
 class Plot_bar_central_wavelength():
-    def __init__(self, dominant_wavelengths_diff, fwhm_diff, central_wavelengths_diff, save_plots, plot_path = None):
+    def __init__(self, dominant_wavelengths_diff, fwhm_diff, central_wavelengths_diff):
         self.dominant_wavelengths_diff = dominant_wavelengths_diff
         self.fwhm_diff = fwhm_diff
         self.central_wavelengths_diff = central_wavelengths_diff
-        self.save_plots = save_plots
-        self.plot_path = plot_path
 
 
     def plot(self, title, is_streamlit = True):
