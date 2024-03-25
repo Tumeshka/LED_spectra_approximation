@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import streamlit as st
 
 class Plot_bar_extinction():
     def __init__(self, diff, diff_perc, save_plots, plot_path = None):
@@ -8,7 +9,7 @@ class Plot_bar_extinction():
         self.save_plots = save_plots
         self.plot_path = plot_path
 
-    def plot(self, title):
+    def plot(self, title, is_streamlit = True):
 
         def addlabels_O2Hb(x,y,s):
             for i in range(len(x)):
@@ -31,7 +32,7 @@ class Plot_bar_extinction():
         O2Hb = [self.diff[peak_type]["O2Hb"] for peak_type in peak_types]
         HHb = [self.diff[peak_type]["HHb"] for peak_type in peak_types]
 
-        plt.figure(figsize=(15,5))
+        fig = plt.figure(figsize=(15,5))
 
         bar_width = 0.40
 
@@ -53,7 +54,11 @@ class Plot_bar_extinction():
 
         if self.save_plots:
             plt.savefig(self.plot_path + "\\" + "Bar plot " + title + ".png")
-        plt.show()
+
+        if not is_streamlit:
+            plt.show()
+        else:
+            st.pyplot(fig)
 
 class Plot_bar_central_wavelength():
     def __init__(self, dominant_wavelengths_diff, fwhm_diff, central_wavelengths_diff, save_plots, plot_path = None):
@@ -64,7 +69,7 @@ class Plot_bar_central_wavelength():
         self.plot_path = plot_path
 
 
-    def plot(self, title):
+    def plot(self, title, is_streamlit = True):
 
         def addlabels_dominant_wavelength_diff(x,y,s):
             for i in range(len(x)):
@@ -89,7 +94,7 @@ class Plot_bar_central_wavelength():
 
         LEDs = self.dominant_wavelengths_diff.keys()
 
-        plt.figure(figsize=(20,5))
+        fig = plt.figure(figsize=(20,5))
 
         bar_width = 0.30
 
@@ -116,4 +121,8 @@ class Plot_bar_central_wavelength():
 
         if self.save_plots:
             plt.savefig(self.plot_path + "\\" + "Bar plot " + title + ".png")
-        plt.show()
+
+        if not is_streamlit:
+            plt.show()
+        else:
+            st.pyplot(fig)
