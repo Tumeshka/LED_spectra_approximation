@@ -23,8 +23,8 @@ def main():
         folder_path = st.sidebar.text_input("Data folder path")
         separator = st.sidebar.text_input("Separator for data", value=":")
 
-    starting_wavelength = st.sidebar.number_input("Starting wavelength")
-    ending_wavelength = st.sidebar.number_input("Ending wavelength")
+    starting_wavelength = st.sidebar.number_input("Starting wavelength", value=600)
+    ending_wavelength = st.sidebar.number_input("Ending wavelength", value=1200)
     title = st.sidebar.text_input("Title", value="LED emission approximation")
     save_the_plots = st.sidebar.checkbox("Save the plots", value=False)
     
