@@ -49,18 +49,13 @@ def main():
 
         if not is_simulation:
             Plot_comparison_real_data(lib_spectral_data).plot_spectra(title)
-            st.download_button(label = "Spectra plot", data = Plot_comparison_real_data(lib_spectral_data).plot_spectra(title), file_name = "Spectra plot.png", mime = "image/png")
 
             Plot_comparison_real_data(lib_spectral_data).plot_cumulative_spectra(title)
-            st.download_button(label = "Cumulative spectra plot", data = Plot_comparison_real_data(lib_spectral_data).plot_cumulative_spectra(title), file_name = "Cumulative spectra plot.png", mime = "image/png")
 
         elif is_simulation == True:
             Plot_comparison(lib_spectral_data).plot_spectra(title)
-            st.download_button(label = "Spectra plot", data = Plot_comparison(lib_spectral_data).plot_spectra(title), file_name = "Spectra plot.png", mime = "image/png")
 
             Plot_comparison(lib_spectral_data).plot_cumulative_spectra(title)
-            st.download_button(label = "Cumulative spectra plot", data = Plot_comparison(lib_spectral_data).plot_cumulative_spectra(title), file_name = "Cumulative spectra plot.png", mime = "image/png")
-
 
 if __name__ == "__main__":
     main()
