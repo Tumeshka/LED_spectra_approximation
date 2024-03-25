@@ -45,9 +45,7 @@ def main():
         lib_spectral_data = johnson.get_lib_spectral_data()
         lib_central_wavelengths = johnson.get_lib_central_wavelengths()
 
-        bar_plot = Plot_bar_extinction(diff, diff_perc).plot(title)
-
-        st.download_button(label = "Bar plot", data = bar_plot, file_name = "Bar plot.png", mime = "image/png")
+        Plot_bar_extinction(diff, diff_perc).plot(title)
 
         if not is_simulation:
             Plot_comparison_real_data(lib_spectral_data).plot_spectra(title)
