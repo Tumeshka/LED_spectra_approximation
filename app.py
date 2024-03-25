@@ -26,11 +26,6 @@ def main():
     starting_wavelength = st.sidebar.number_input("Starting wavelength", value=600)
     ending_wavelength = st.sidebar.number_input("Ending wavelength", value=1200)
     title = st.sidebar.text_input("Title", value="LED emission approximation")
-    save_the_plots = st.sidebar.checkbox("Save the plots", value=False)
-    
-    plot_path = None
-    if save_the_plots:
-        plot_path = st.sidebar.text_input("Plot path")
 
     run_toggle = st.sidebar.checkbox("Run", value = False)
 
@@ -42,9 +37,6 @@ def main():
     st.write("Starting wavelength:", starting_wavelength)
     st.write("Ending wavelength:", ending_wavelength)
     st.write("Title:", title)
-    st.write("Save the plots:", save_the_plots)
-    if save_the_plots:
-        st.write("Plot path:", plot_path)
 
     # Add code to load and process data, using the parameters as inputs
     if run_toggle:
@@ -53,17 +45,23 @@ def main():
         lib_spectral_data_p15 = johnson.get_lib_spectral_data()
         lib_central_wavelengths_p15 = johnson.get_lib_central_wavelengths()
 
-        Plot_bar_extinction(diff, diff_perc, save_the_plots, plot_path).plot(title)
+        bar_plot = Plot_bar_extinction(diff, diff_perc).plot(title)
+
+        st.download.button(label = "Bar plot", data = bar_plot, file_name = "Bar plot.png", mime = "image/png")
 
         if not is_simulation:
-            Plot_comparison_real_data(lib_spectral_data_p15, save_the_plots, plot_path).plot_spectra(title)
+            spectra_plot = Plot_comparison_real_data(lib_spectral_data_p15).plot_spectra(title)
+            st.download_button(label = "Spectra plot", data = spectra_plot, file_name = "Spectra plot.png", mime = "image/png")
 
-            Plot_comparison_real_data(lib_spectral_data_p15, save_the_plots, plot_path).plot_cumulative_spectra(title)
+            cum_spectra_plot = Plot_comparison_real_data(lib_spectral_data_p15).plot_cumulative_spectra(title)
+            st.download_button(label = "Cumulative spectra plot", data = cum_spectra_plot, file_name = "Cumulative spectra plot.png", mime = "image/png")
 
         elif is_simulation == True:
-            Plot_comparison(lib_spectral_data_p15, save_the_plots, plot_path).plot_spectra(title)
+            spectra_plot = Plot_comparison(lib_spectral_data_p15).plot_spectra(title)
+            st.download_button(label = "Spectra plot", data = spectra_plot, file_name = "Spectra plot.png", mime = "image/png")
 
-            Plot_comparison(lib_spectral_data_p15, save_the_plots, plot_path).plot_cumulative_spectra(title)
+            cum_spectra_plot = Plot_comparison(lib_spectral_data_p15).plot_cumulative_spectra(title)
+            st.download_button(label = "Cumulative spectra plot", data = cum_spectra_plot, file_name = "Cumulative spectra plot.png", mime = "image/png")
 
 
 if __name__ == "__main__":
