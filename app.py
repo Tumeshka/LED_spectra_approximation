@@ -47,7 +47,7 @@ def main():
 
         bar_plot = Plot_bar_extinction(diff, diff_perc).plot(title)
 
-        st.download.button(label = "Bar plot", data = bar_plot, file_name = "Bar plot.png", mime = "image/png")
+        st.download_button(label = "Bar plot", data = bar_plot, file_name = "Bar plot.png", mime = "image/png")
 
         if not is_simulation:
             Plot_comparison_real_data(lib_spectral_data).plot_spectra(title)
