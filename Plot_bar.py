@@ -50,9 +50,6 @@ class Plot_bar_extinction():
 
         plt.legend(loc = "upper right", bbox_to_anchor=(1.15, 1))
 
-        if self.save_plots:
-            plt.savefig(self.plot_path + "\\" + "Bar plot " + title + ".png")
-
         if not is_streamlit:
             plt.show()
         else:
@@ -115,8 +112,6 @@ class Plot_bar_central_wavelength():
 
         plt.legend(loc = "upper right", bbox_to_anchor=(1.22, 1))
 
-        if self.save_plots:
-            plt.savefig(self.plot_path + "\\" + "Bar plot " + title + ".png")
 
         if not is_streamlit:
             plt.show()
