@@ -111,7 +111,7 @@ class Plot_comparison:
         cum_spectra_img = io.BytesIO()
         plt.savefig(cum_spectra_img, format='png')
 
-        cum_spectra_btn = st.download_button(label = "Download the cumulative spectra plot", data = cum_spectra_img, file_name = "Cumulative spectra plot.png", mime = "image/png")
+        cum_spectra_btn = st.download_button(label = "Download the cumulative spectra plot", data = cum_spectra_img, file_name = "Cumulative spectra plot.png", mime = "image/png", key = 1)
 
         if not is_streamlit:
             plt.show()
