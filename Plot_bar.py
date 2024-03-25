@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
+import io
 
 class Plot_bar_extinction():
     def __init__(self, diff, diff_perc):
@@ -49,6 +50,11 @@ class Plot_bar_extinction():
         plt.title(f"{title} - mean error; O2Hb: {round(np.mean(O2Hb_percentage),2)}%, HHb: {round(np.mean(HHb_percentage),2)}%")
 
         plt.legend(loc = "upper right", bbox_to_anchor=(1.15, 1))
+
+        img = io.BytesIO()
+        plt.savefig(img, format='png')
+
+        btn = st.download_button(label = "Bar plot", data = img, file_name = "Bar plot.png", mime = "image/png")
 
         if not is_streamlit:
             plt.show()
