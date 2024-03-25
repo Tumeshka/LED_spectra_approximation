@@ -64,7 +64,7 @@ class Plot_comparison:
         img = io.BytesIO()
         plt.savefig(img, format='png')
 
-        btn = st.download_button(label = "Download the spectra plot", data = img, file_name = "Spectra plot.png", mime = "image/png")
+        btn = st.download_button(label = "Download the spectra plot", data = img, file_name = "Spectra plot.png", mime = "image/png", key = 0)
 
 
         if not is_streamlit:
