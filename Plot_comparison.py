@@ -23,7 +23,6 @@ class Plot_comparison:
         self.Quadruple_peak_reconstructed = lib_spectral_data["Quadruple peak reconstructed"]
 
 
-    @st.cache
     def plot_spectra(self, title, is_streamlit = True):
 
         fig, axs = plt.subplots(2, 2, figsize=(10, 10))
@@ -72,7 +71,7 @@ class Plot_comparison:
         else:
             st.pyplot(fig)
 
-    @st.cache
+
     def plot_cumulative_spectra(self, title, is_streamlit = True):
         fig, axs = plt.subplots(2, 2, figsize=(10, 10))
         fig.suptitle(f'Cumulative spectra of {title}')
